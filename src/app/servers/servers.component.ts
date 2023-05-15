@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { isEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-servers',
@@ -7,21 +8,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent {
-  allowNewServer = false;
-  serverCreationStatus = 'No server was created!';
-  serverName='Testserver';
+  // allowNewServer = false;
+  // serverCreationStatus = 'No server was created!';
+  // serverName='Testserver';
+
+  username = '';
+  isEmpty = false;
+
+  resetUsername(){
+    this.username = '';  
+  }
+
+  disableButton() {
+    this.isEmpty=true;
+  }
 
   constructor() {
-    setTimeout(() => {
-      this.allowNewServer = true;
-    }, 2000)
-  }
+    // setTimeout(() => {
+    //   this.allowNewServer = true;
+    // }, 2000)
 
-  onCreateServer(){
-    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
-  }
+  // onCreateServer(){
+  //   this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
+  // }
 
-  onUpdateServerName(event:Event){
-    this.serverName=(<HTMLInputElement>event.target).value;
-  }
+  // onUpdateServerName(event:Event){
+  //   this.serverName=(<HTMLInputElement>event.target).value;
+  // }
+
+  
+
+
+}
 }
